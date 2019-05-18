@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bite_club/login/LoginPage.dart';
+import 'package:bite_club/view/login/LoginPage.dart';
 import 'package:flutter/material.dart';
 
 

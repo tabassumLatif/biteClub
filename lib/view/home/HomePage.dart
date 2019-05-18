@@ -1,4 +1,8 @@
-import 'package:bite_club/home/tabs/chat/ChatPage.dart';
+import 'package:bite_club/view/home/tabs/chat/ChatPage.dart';
+import 'package:bite_club/view/home/tabs/events/EventPage.dart';
+import 'package:bite_club/view/home/tabs/more/MorePage.dart';
+import 'package:bite_club/view/home/tabs/myEvents/MyEventsPage.dart';
+import 'package:bite_club/view/home/tabs/scanQR/ScanQRPage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,11 +15,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    ChatPage(Colors.blue),
-    ChatPage(Colors.deepOrange),
-    ChatPage(Colors.green),
+    EventPage(Colors.blue),
+    MyEventPage(Colors.deepOrange),
+    ScanQRPage(Colors.green),
     ChatPage(Colors.amber),
-    ChatPage(Colors.brown)
+    MorePage(Colors.brown)
   ];
 
   final List<String> tabNames = [
@@ -31,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
+
     });
   }
 

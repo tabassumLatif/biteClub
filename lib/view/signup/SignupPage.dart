@@ -1,9 +1,9 @@
-import 'package:bite_club/welcome/WelcomePage.dart';
+import 'package:bite_club/view/welcome/WelcomePage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
-  static String tag = 'signup-page';
+  static String tag = 'view.signup-page';
 
   SignupPage({Key key}) : super(key: key);
 
@@ -57,25 +57,25 @@ class _SignupPageState extends State<SignupPage> {
 
     final lastName = new Flexible(
         child: Container(
-      color: const Color(0xFFF3F3F3),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        autofocus: false,
-        initialValue: '',
-        decoration: InputDecoration(
-            hintText: 'Last Name',
-            hintStyle: TextStyle(
-              color: Color(0xFFA2A2A2),
-              fontSize: 11.0,
-            ),
-            contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-            border:
+          color: const Color(0xFFF3F3F3),
+          child: TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            autofocus: false,
+            initialValue: '',
+            decoration: InputDecoration(
+                hintText: 'Last Name',
+                hintStyle: TextStyle(
+                  color: Color(0xFFA2A2A2),
+                  fontSize: 11.0,
+                ),
+                contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(0),
-                borderSide: new BorderSide(color: Color(0xFFA2A2A2)))),
-      ),
-    ));
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0),
+                    borderSide: new BorderSide(color: Color(0xFFA2A2A2)))),
+          ),
+        ));
 
     final nameRow = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +97,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
               border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
+              OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(0),
                   borderSide: new BorderSide(color: Color(0xFFA2A2A2)))),
@@ -117,7 +117,7 @@ class _SignupPageState extends State<SignupPage> {
               ),
               contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
               border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
+              OutlineInputBorder(borderRadius: BorderRadius.circular(0.0)),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(0),
                   borderSide: new BorderSide(color: Color(0xFFA2A2A2)))),
@@ -147,7 +147,7 @@ class _SignupPageState extends State<SignupPage> {
     final vlaues = Container(
         height: 40.0,
         decoration:
-            new BoxDecoration(border: new Border.all(color: Color(0xFFA2A2A2))),
+        new BoxDecoration(border: new Border.all(color: Color(0xFFA2A2A2))),
         child: DropdownButton<String>(
           isExpanded: true,
           value: dropdownValue,
@@ -199,7 +199,7 @@ class _SignupPageState extends State<SignupPage> {
             new TextSpan(
               text: 'Sign IN',
               style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
               recognizer: new TapGestureRecognizer()
                 ..onTap = () => Navigator.pop(context),
             )
@@ -233,12 +233,15 @@ class _SignupPageState extends State<SignupPage> {
               padding: new EdgeInsets.all(8.0),
               child: new Image.asset('assets/images/fb.png',
                   scale: 3.0, width: 48.0, height: 48.0)),
-
         ]);
 
-    return new Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
+    final body = Stack(children: <Widget>[
+      Image.asset(
+        'assets/images/background.png',
+        fit: BoxFit.fill,
+        width: double.infinity,
+        height: double.infinity,
+      ), Center(
         child: ListView(
           shrinkWrap: false,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -269,7 +272,12 @@ class _SignupPageState extends State<SignupPage> {
             signupOptionRow,
           ],
         ),
-      ),
+      )
+    ]);
+
+    return new Scaffold(
+      backgroundColor: Colors.white,
+      body: body,
     );
   }
 }

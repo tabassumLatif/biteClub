@@ -1,10 +1,10 @@
-import 'package:bite_club/forgotPassword/ForgotPasswordPage.dart';
-import 'package:bite_club/home/HomePage.dart';
-import 'package:bite_club/signup/SignupPage.dart';
+import 'package:bite_club/view/forgotPassword/ForgotPasswordPage.dart';
+import 'package:bite_club/view/home/HomePage.dart';
+import 'package:bite_club/view/signup/SignupPage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
+  static String tag = 'view.login-page';
 
   @override
   _LoginPageState createState() => new _LoginPageState();
@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-
     final logoText = Text(
       "Welcome to BITE CLUB",
       style: new TextStyle(
@@ -174,36 +173,49 @@ class _LoginPageState extends State<LoginPage> {
       style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
     );
 
+    final body = Stack(
+      children: <Widget>[
+        Image.asset(
+          'assets/images/background.png',
+          fit:BoxFit.fill,
+          width: double.infinity,
+          height: double.infinity,
+        ),
+        Center(
+          child: ListView(
+            shrinkWrap: false,
+            padding: EdgeInsets.only(left: 24.0, right: 24.0),
+            children: <Widget>[
+              SizedBox(height: 48.0),
+              logoText,
+              SizedBox(
+                height: 4.0,
+              ),
+              sublogoText,
+              SizedBox(height: 48.0),
+              email,
+              SizedBox(height: 8.0),
+              password,
+              SizedBox(
+                height: 12.0,
+              ),
+              forgotPassword,
+              SizedBox(height: 24.0),
+              loginRow,
+              SizedBox(height: 24.0),
+              signupwithText,
+              SizedBox(height: 24.0),
+              loginOptionRow,
+            ],
+          ),
+        )
+      ],
+    );
+
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
-          children: <Widget>[
-            SizedBox(height: 48.0),
-            logoText,
-            SizedBox(
-              height: 4.0,
-            ),
-            sublogoText,
-            SizedBox(height: 48.0),
-            email,
-            SizedBox(height: 8.0),
-            password,
-            SizedBox(
-              height: 12.0,
-            ),
-            forgotPassword,
-            SizedBox(height: 24.0),
-            loginRow,
-            SizedBox(height: 24.0),
-            signupwithText,
-            SizedBox(height: 24.0),
-            loginOptionRow,
-          ],
-        ),
-      ),
+      body: body,
     );
   }
 }

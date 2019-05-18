@@ -1,4 +1,4 @@
-import 'package:bite_club/splash/SplashPage.dart';
+import 'package:bite_club/view/splash/SplashPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
