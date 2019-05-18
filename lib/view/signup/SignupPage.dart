@@ -1,4 +1,4 @@
-import 'package:bite_club/view/welcome/WelcomePage.dart';
+import 'package:bite_club/view/welcome/UploadProfilePicturePage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -176,7 +176,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
             onPressed: () {
               Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (BuildContext context) => new WelcomePage()));
+                  builder: (BuildContext context) => new UploadProfilePicturePage()));
             },
             padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
             color: Color(0xFFF52E2E),

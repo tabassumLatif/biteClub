@@ -1,4 +1,4 @@
-import 'package:bite_club/dataModel/Chat.dart';
+import 'package:bite_club/dataModel/Event.dart';
 import 'package:bite_club/network/NetworkRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -11,20 +11,18 @@ class EventPage extends StatelessWidget {
 
   EventPage(this.color);
 
-
-
-  final chats = FutureBuilder<List<Chat>>(
-    future: NetworkRequest(http.Client()).fetchChats(),
+  final events = FutureBuilder<List<Event>>(
+    future: NetworkRequest(http.Client()).fetchEvent(),
     builder: (context, result) {
       if (result.hasError) print(result.error);
       return result.hasData
-          ? ListViewEvent(chatList: result.data)
+          ? ListViewEvent(eventList: result.data)
           : Center(child: CircularProgressIndicator());
     },
   );
 
   @override
   Widget build(BuildContext context) {
-    return chats;
+    return events;
   }
 }

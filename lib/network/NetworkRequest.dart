@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bite_club/dataModel/Chat.dart';
+import 'package:bite_club/dataModel/Event.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkRequest {
@@ -14,6 +15,22 @@ class NetworkRequest {
     print(response.body);
     return new Future.value(getLocal());
 //    return compute(parsePosts, response.body);
+  }
+
+  Future<List<Event>> fetchEvent() async {
+    final response =
+        await client.get('https://jsonplaceholder.typicode.com/posts');
+    print(response.body);
+    return new Future.value(getLocalEvent());
+//    return compute(parsePosts, response.body);
+  }
+
+  List<Event> getLocalEvent() {
+    List<Event> list = List<Event>();
+    for (int i = 0; i < 10; i++) {
+      list.add(new Event(1, 1, "title ", "description "));
+    }
+    return list;
   }
 
   List<Chat> getLocal() {
